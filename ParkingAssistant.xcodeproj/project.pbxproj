@@ -13,6 +13,15 @@
 		666AA85E1A3A6E0200B9E548 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 666AA85D1A3A6E0200B9E548 /* Images.xcassets */; };
 		666AA8611A3A6E0200B9E548 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 666AA85F1A3A6E0200B9E548 /* LaunchScreen.xib */; };
 		666AA86D1A3A6E0200B9E548 /* ParkingAssistantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666AA86C1A3A6E0200B9E548 /* ParkingAssistantTests.swift */; };
+		666AA8801A3A6E6000B9E548 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666AA8771A3A6E6000B9E548 /* City.swift */; };
+		666AA8811A3A6E6000B9E548 /* CityMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666AA8781A3A6E6000B9E548 /* CityMap.swift */; };
+		666AA8821A3A6E6000B9E548 /* CurrentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666AA8791A3A6E6000B9E548 /* CurrentLocation.swift */; };
+		666AA8831A3A6E6000B9E548 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666AA87A1A3A6E6000B9E548 /* FirstViewController.swift */; };
+		666AA8841A3A6E6000B9E548 /* ParkingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666AA87B1A3A6E6000B9E548 /* ParkingInfo.swift */; };
+		666AA8851A3A6E6000B9E548 /* ParkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666AA87C1A3A6E6000B9E548 /* ParkingManager.swift */; };
+		666AA8861A3A6E6000B9E548 /* SmsDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666AA87D1A3A6E6000B9E548 /* SmsDetails.swift */; };
+		666AA8871A3A6E6000B9E548 /* SmsSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666AA87E1A3A6E6000B9E548 /* SmsSender.swift */; };
+		666AA8881A3A6E6000B9E548 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666AA87F1A3A6E6000B9E548 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +45,16 @@
 		666AA8661A3A6E0200B9E548 /* ParkingAssistantTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParkingAssistantTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		666AA86B1A3A6E0200B9E548 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		666AA86C1A3A6E0200B9E548 /* ParkingAssistantTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingAssistantTests.swift; sourceTree = "<group>"; };
+		666AA8771A3A6E6000B9E548 /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		666AA8781A3A6E6000B9E548 /* CityMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityMap.swift; sourceTree = "<group>"; };
+		666AA8791A3A6E6000B9E548 /* CurrentLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLocation.swift; sourceTree = "<group>"; };
+		666AA87A1A3A6E6000B9E548 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		666AA87B1A3A6E6000B9E548 /* ParkingInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingInfo.swift; sourceTree = "<group>"; };
+		666AA87C1A3A6E6000B9E548 /* ParkingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingManager.swift; sourceTree = "<group>"; };
+		666AA87D1A3A6E6000B9E548 /* SmsDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmsDetails.swift; sourceTree = "<group>"; };
+		666AA87E1A3A6E6000B9E548 /* SmsSender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmsSender.swift; sourceTree = "<group>"; };
+		666AA87F1A3A6E6000B9E548 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		666AA88B1A3A7CFA00B9E548 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +96,7 @@
 		666AA8531A3A6E0200B9E548 /* ParkingAssistant */ = {
 			isa = PBXGroup;
 			children = (
+				666AA8761A3A6E1900B9E548 /* domain */,
 				666AA8561A3A6E0200B9E548 /* AppDelegate.swift */,
 				666AA8581A3A6E0200B9E548 /* ViewController.swift */,
 				666AA85A1A3A6E0200B9E548 /* Main.storyboard */,
@@ -110,6 +130,30 @@
 				666AA86B1A3A6E0200B9E548 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		666AA8761A3A6E1900B9E548 /* domain */ = {
+			isa = PBXGroup;
+			children = (
+				666AA8891A3A6E7800B9E548 /* sms */,
+				666AA8771A3A6E6000B9E548 /* City.swift */,
+				666AA8781A3A6E6000B9E548 /* CityMap.swift */,
+				666AA8791A3A6E6000B9E548 /* CurrentLocation.swift */,
+				666AA87A1A3A6E6000B9E548 /* FirstViewController.swift */,
+				666AA87B1A3A6E6000B9E548 /* ParkingInfo.swift */,
+				666AA87C1A3A6E6000B9E548 /* ParkingManager.swift */,
+				666AA87F1A3A6E6000B9E548 /* User.swift */,
+			);
+			name = domain;
+			sourceTree = "<group>";
+		};
+		666AA8891A3A6E7800B9E548 /* sms */ = {
+			isa = PBXGroup;
+			children = (
+				666AA87D1A3A6E6000B9E548 /* SmsDetails.swift */,
+				666AA87E1A3A6E6000B9E548 /* SmsSender.swift */,
+			);
+			name = sms;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,8 +256,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				666AA8871A3A6E6000B9E548 /* SmsSender.swift in Sources */,
 				666AA8591A3A6E0200B9E548 /* ViewController.swift in Sources */,
+				666AA8861A3A6E6000B9E548 /* SmsDetails.swift in Sources */,
 				666AA8571A3A6E0200B9E548 /* AppDelegate.swift in Sources */,
+				666AA8801A3A6E6000B9E548 /* City.swift in Sources */,
+				666AA8831A3A6E6000B9E548 /* FirstViewController.swift in Sources */,
+				666AA8821A3A6E6000B9E548 /* CurrentLocation.swift in Sources */,
+				666AA8811A3A6E6000B9E548 /* CityMap.swift in Sources */,
+				666AA8851A3A6E6000B9E548 /* ParkingManager.swift in Sources */,
+				666AA8841A3A6E6000B9E548 /* ParkingInfo.swift in Sources */,
+				666AA8881A3A6E6000B9E548 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +293,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				666AA85B1A3A6E0200B9E548 /* Base */,
+				666AA88B1A3A7CFA00B9E548 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -405,6 +459,7 @@
 				666AA8721A3A6E0300B9E548 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		666AA8731A3A6E0300B9E548 /* Build configuration list for PBXNativeTarget "ParkingAssistantTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +468,7 @@
 				666AA8751A3A6E0300B9E548 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,0 +1,9 @@
+
+/* Class = "IBUIButton"; normalTitle = "Do Park!"; ObjectID = "3cU-pA-CP6"; */
+"3cU-pA-CP6.normalTitle" = "Do Park!";
+
+/* Class = "IBUILabel"; text = "ubicacionLabel"; ObjectID = "aw0-kL-DuA"; */
+"aw0-kL-DuA.text" = "ubicacionLabel";
+
+/* Class = "IBUILabel"; text = "Ubicacion:"; ObjectID = "kDa-eI-Yog"; */
+"kDa-eI-Yog.text" = "Ubicacion:";
