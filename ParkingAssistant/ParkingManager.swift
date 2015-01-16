@@ -23,18 +23,24 @@ public class ParkingManager {
     
     
     public func doBuyParkingPermit() -> Bool {
-        return self.smsSender.sendMessage(currentLocation.getCurrentCity().smsInfo)
+        return self.smsSender.sendMessage(fillOutMessageDetails())
     }
     
     func getCityName() -> String {
         return self.currentLocation.getCurrentCity().name
     }
     
-    func getSmsDetails() -> String {
-        var smsDetails: SmsDetails = currentLocation.getCurrentCity().smsInfo
-        return "Sms body: " + smsDetails.toString() + ", sms number " + smsDetails.smsNumber
+    func getSmsDetails() -> SmsDetails {
+        return fillOutMessageDetails()
     }
     
+    func fillOutMessageDetails() -> SmsDetails {
+        var smsDetails: SmsDetails = currentLocation.getCurrentCity().smsInfo
+        smsDetails.actualLicensePlate = self.user1.licensePlate
+        smsDetails.actualBlock = self.currentLocation.getCurrentBlock()
+        smsDetails.actualStreet = self.currentLocation.getCurrentStreet()
+        return smsDetails
+    }
     
     func getLicensePlate() -> String {
         return self.user1.licensePlate

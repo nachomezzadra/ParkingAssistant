@@ -35,7 +35,7 @@ class ViewControllerOld: UIViewController {
     
     func doFillInformationLabels(parkingManager: ParkingManager) {
         locationTargetLabel.text = parkingManager.getCityName()
-        smsDetails.text = parkingManager.getSmsDetails()
+        smsDetails.text = parkingManager.getSmsDetails().toString()
         licensePlateLabel.text = parkingManager.getLicensePlate()
         
     }

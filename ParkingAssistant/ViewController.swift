@@ -17,6 +17,7 @@ class ViewController: UIViewController, UIPickerViewDelegate {
     @IBOutlet weak var licensePlateLabel: UILabel!
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var successLabel: UILabel!
+    @IBOutlet weak var smsNumber: UILabel!
     
     var currentLocation: CurrentLocation!
     let places: Places = Places()
@@ -41,8 +42,9 @@ class ViewController: UIViewController, UIPickerViewDelegate {
     
     func doFillInformationLabels(parkingManager: ParkingManager) {
         locationTargetLabel.text = parkingManager.getCityName()
-        smsDetails.text = parkingManager.getSmsDetails()
+        smsDetails.text = parkingManager.getSmsDetails().toString()
         licensePlateLabel.text = parkingManager.getLicensePlate()
+        smsNumber.text = parkingManager.getSmsDetails().smsNumber
 
     }
     
@@ -58,7 +60,10 @@ class ViewController: UIViewController, UIPickerViewDelegate {
     }
     
     @IBAction func findCurrentLocation(sender: AnyObject) {
-
+        let myAlert = UIAlertView(title: "Current Location",
+            message: "You are in " + currentLocation.getCurrentCity().name,
+            delegate: nil, cancelButtonTitle: "Ok")
+        myAlert.show()
     
     }
     
