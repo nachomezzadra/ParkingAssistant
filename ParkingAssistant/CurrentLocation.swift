@@ -8,19 +8,12 @@
 
 import Foundation
 
-
-class CurrentLocation {
-
-    var smsDetails = SmsDetails(smsNumber: "*555", smsBody: "<LICENSE_PLATE> <LOCATION>")
-    let city: City
+protocol CurrentLocation {
     
+    func getCurrentCity() -> City
+    
+    func getCurrentStreet() -> String
+    
+    func getCurrentBlock() -> String
 
-    init() {
-        self.city = City(name: "Tandil", location: "x:54322, y:99823", smsInfo: self.smsDetails)
-    }
-    
-    func getCity() -> City {
-        return self.city
-    }
-    
 }

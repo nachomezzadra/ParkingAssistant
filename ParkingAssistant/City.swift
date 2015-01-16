@@ -12,11 +12,13 @@ import Foundation
 class City {
     
     let name: String
-    let location: String
+    let latitude: Double
+    let longitude: Double
     let smsInfo: SmsDetails
     
-    init(name:String, location:String, smsInfo: SmsDetails) {
-        self.location = location
+    init(name:String, latitude:Double, longitude:Double, smsInfo: SmsDetails) {
+        self.latitude = latitude
+        self.longitude = longitude
         self.name = name
         self.smsInfo = smsInfo
     }

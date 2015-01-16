@@ -9,19 +9,15 @@
 import Foundation
 
 
-class User{
+class User {
     
     let licensePlates: [String]
     let licensePlate: String
-    var currentLocation: CurrentLocation
+
     
     init(licensePlate:String) {
         self.licensePlate = licensePlate
         licensePlates = [licensePlate]
-        self.currentLocation = CurrentLocation()
     }
     
-    func getParkingInfo() -> ParkingInfo {
-        return ParkingInfo(licensePlate: self.licensePlate, currentLocation: currentLocation)
-    }
 }

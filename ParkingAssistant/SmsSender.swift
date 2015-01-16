@@ -9,20 +9,10 @@
 import Foundation
 class SmsSender {
     
-    let smsNumber:String
-    let body: String
-    
-    init(smsNumber: String, body:String) {
-        self.smsNumber = smsNumber
-        self.body = body
+    init() {
     }
     
-    init(smsInfo: SmsDetails) {
-        self.smsNumber = smsInfo.smsNumber
-        self.body = smsInfo.smsBody
-    }
-    
-    func sendMessage() -> Bool {
+    func sendMessage(smsDetails: SmsDetails) -> Bool {
         return 1 == Int(arc4random_uniform(2))
     }
 }

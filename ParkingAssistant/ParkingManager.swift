@@ -12,27 +12,32 @@ import Foundation
 public class ParkingManager {
     
     let user1 = User(licensePlate: "NFV743")
-    let smsSender: SmsSender
+    let smsSender: SmsSender = SmsSender()
+    var currentLocation: CurrentLocation
     
     
-    public init() {
-        self.smsSender = SmsSender(smsInfo: user1.currentLocation.getCity().smsInfo)
+    
+    init(currentLocation: CurrentLocation) {
+        self.currentLocation = currentLocation
     }
     
+    
     public func doBuyParkingPermit() -> Bool {
-        return smsSender.sendMessage()
+        return self.smsSender.sendMessage(currentLocation.getCurrentCity().smsInfo)
     }
     
     func getCityName() -> String {
-        return self.user1.currentLocation.getCity().name
+        return self.currentLocation.getCurrentCity().name
     }
     
     func getSmsDetails() -> String {
-        return "Sms body: " + self.user1.getParkingInfo().currentLocation.smsDetails.smsBody + ", sms number" + self.user1.getParkingInfo().currentLocation.smsDetails.smsNumber
+        var smsDetails: SmsDetails = currentLocation.getCurrentCity().smsInfo
+        return "Sms body: " + smsDetails.toString() + ", sms number " + smsDetails.smsNumber
     }
     
+    
     func getLicensePlate() -> String {
-        return self.user1.getParkingInfo().licensePlate
+        return self.user1.licensePlate
     }
     
 }
