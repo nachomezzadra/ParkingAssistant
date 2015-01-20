@@ -7,12 +7,29 @@
 //
 
 import Foundation
-class SmsSender {
+import MessageUI
+
+class SmsSender: NSObject, MFMessageComposeViewControllerDelegate {
     
-    init() {
+    
+    // A wrapper function to indicate whether or not a text message can be sent from the user's device
+    func canSendText() -> Bool {
+        return MFMessageComposeViewController.canSendText()
     }
     
-    func sendMessage(smsDetails: SmsDetails) -> Bool {
-        return 1 == Int(arc4random_uniform(2))
+    // Configures and returns a MFMessageComposeViewController instance
+    func configuredMessageComposeViewController(smsDetails: SmsDetails) -> MFMessageComposeViewController {
+        let messageComposeVC = MFMessageComposeViewController()
+        //  Make sure to set this property to self, so that the controller can be dismissed!
+        messageComposeVC.messageComposeDelegate = self
+        messageComposeVC.recipients = [smsDetails.smsNumber]
+        messageComposeVC.body = smsDetails.toString()
+        return messageComposeVC
+    }
+    
+    
+    // MFMessageComposeViewControllerDelegate callback - dismisses the view controller when the user is finished with it
+    func messageComposeViewController(controller: MFMessageComposeViewController!, didFinishWithResult result: MessageComposeResult) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
     }
 }

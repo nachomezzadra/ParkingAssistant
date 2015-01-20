@@ -46,10 +46,10 @@ class ViewControllerOld: UIViewController {
         //var currentCity =
         self.doFillInformationLabels(parkingManager)
         
-        var success = parkingManager.doBuyParkingPermit()
+        //var success = parkingManager.doBuyParkingPermit()
         
-        successLabel.hidden = success
-        errorLabel.hidden = !success
+       // successLabel.hidden = success
+       // errorLabel.hidden = !success
     }
     
     @IBAction func findCurrentLocation(sender: AnyObject) {

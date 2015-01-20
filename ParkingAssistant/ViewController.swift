@@ -8,8 +8,9 @@
 
 import UIKit
 import CoreLocation
+import MessageUI
 
-class ViewController: UIViewController, UIPickerViewDelegate {
+class ViewController: UIViewController, UIPickerViewDelegate, MFMessageComposeViewControllerDelegate {
     
     
     @IBOutlet weak var locationTargetLabel: UILabel!
@@ -21,6 +22,7 @@ class ViewController: UIViewController, UIPickerViewDelegate {
     
     var currentLocation: CurrentLocation!
     let places: Places = Places()
+    let smsSender = SmsSender()
    
     
     override func viewDidLoad() {
@@ -45,18 +47,28 @@ class ViewController: UIViewController, UIPickerViewDelegate {
         smsDetails.text = parkingManager.getSmsDetails().toString()
         licensePlateLabel.text = parkingManager.getLicensePlate()
         smsNumber.text = parkingManager.getSmsDetails().smsNumber
-
     }
     
     
     @IBAction func doPark(sender: AnyObject) {
         let parkingManager = ParkingManager(currentLocation: self.currentLocation)
         self.doFillInformationLabels(parkingManager)
+
         
-        var success = parkingManager.doBuyParkingPermit()
+        var smsDetails: SmsDetails = parkingManager.fillOutMessageDetails()
         
-        successLabel.hidden = success
-        errorLabel.hidden = !success
+        if (smsSender.canSendText()) {
+            let messageComposeVC = smsSender.configuredMessageComposeViewController(smsDetails)
+            
+            // Present the configured MFMessageComposeViewController instance
+            // Note that the dismissal of the VC will be handled by the messageComposer instance,
+            // since it implements the appropriate delegate call-back
+            presentViewController(messageComposeVC, animated: true, completion: nil)
+        } else {
+            // Let the user know if his/her device isn't able to send text messages
+            let errorAlert = UIAlertView(title: "Cannot Send Text Message", message: "Your device is not able to send text messages. Manually send an SMS to " + smsDetails.smsNumber + " the following message: " + smsDetails.toString(), delegate: self, cancelButtonTitle: "OK")
+            errorAlert.show()
+        }
     }
     
     @IBAction func findCurrentLocation(sender: AnyObject) {
@@ -66,6 +78,9 @@ class ViewController: UIViewController, UIPickerViewDelegate {
         myAlert.show()
     
     }
+    
+    
+    ///////////// picker view ////////////////
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
@@ -82,6 +97,28 @@ class ViewController: UIViewController, UIPickerViewDelegate {
 
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         setCurrentLocationForId(row)
+    }
+    
+    //////////// sms sender ////////////
+    
+    func messageComposeViewController(controller: MFMessageComposeViewController!, didFinishWithResult result: MessageComposeResult) {
+        switch (result.value) {
+        case MessageComposeResultCancelled.value:
+            println("Message was cancelled")
+            self.dismissViewControllerAnimated(true, completion: nil)
+        case MessageComposeResultFailed.value:
+            println("Message failed")
+            successLabel.hidden = true
+            errorLabel.hidden = false
+            self.dismissViewControllerAnimated(true, completion: nil)
+        case MessageComposeResultSent.value:
+            println("Message was sent")
+            successLabel.hidden = false
+            errorLabel.hidden = true
+            self.dismissViewControllerAnimated(true, completion: nil)
+        default:
+            break;
+        }
     }
 
 }

@@ -74,8 +74,8 @@ class Places {
     private func getSmsDetailsLaPlata() -> SmsDetails {
         var smsDetailsLp: SmsDetails = SmsDetails(smsNumber: "6357")
         smsDetailsLp.add(SmsBodyOption.Keyword)
-        smsDetailsLp.add(SmsBodyOption.Hours)
         smsDetailsLp.actualKeyword = "E"
+        smsDetailsLp.add(SmsBodyOption.LicensePlate)
         return smsDetailsLp
     }
     

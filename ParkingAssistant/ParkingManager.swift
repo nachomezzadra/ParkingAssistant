@@ -12,7 +12,6 @@ import Foundation
 public class ParkingManager {
     
     let user1 = User(licensePlate: "NFV743")
-    let smsSender: SmsSender = SmsSender()
     var currentLocation: CurrentLocation
     
     
@@ -21,10 +20,6 @@ public class ParkingManager {
         self.currentLocation = currentLocation
     }
     
-    
-    public func doBuyParkingPermit() -> Bool {
-        return self.smsSender.sendMessage(fillOutMessageDetails())
-    }
     
     func getCityName() -> String {
         return self.currentLocation.getCurrentCity().name
