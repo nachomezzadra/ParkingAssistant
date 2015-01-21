@@ -25,16 +25,14 @@ public class ParkingManager {
         return self.currentLocation.getCurrentCity().name
     }
     
-    func getSmsDetails() -> SmsDetails {
+    func getStartSmsDetails() -> SmsFormat {
         return fillOutMessageDetails()
     }
     
-    func fillOutMessageDetails() -> SmsDetails {
-        var smsDetails: SmsDetails = currentLocation.getCurrentCity().smsInfo
-        smsDetails.actualLicensePlate = self.user1.licensePlate
-        smsDetails.actualBlock = self.currentLocation.getCurrentBlock()
-        smsDetails.actualStreet = self.currentLocation.getCurrentStreet()
-        return smsDetails
+    func fillOutMessageDetails() -> SmsFormat {
+        currentLocation.getCurrentCity().smsParkingSet.fillOutVariables(self.user1.licensePlate, actualBlock: self.currentLocation.getCurrentBlock(), actualStreet: self.currentLocation.getCurrentStreet(), actualHours: "1")
+
+        return currentLocation.getCurrentCity().smsParkingSet.smsStart
     }
     
     func getLicensePlate() -> String {

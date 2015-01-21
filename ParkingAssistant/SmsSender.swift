@@ -18,7 +18,7 @@ class SmsSender: NSObject, MFMessageComposeViewControllerDelegate {
     }
     
     // Configures and returns a MFMessageComposeViewController instance
-    func configuredMessageComposeViewController(smsDetails: SmsDetails) -> MFMessageComposeViewController {
+    func configuredMessageComposeViewController(smsDetails: SmsFormat) -> MFMessageComposeViewController {
         let messageComposeVC = MFMessageComposeViewController()
         //  Make sure to set this property to self, so that the controller can be dismissed!
         messageComposeVC.messageComposeDelegate = self

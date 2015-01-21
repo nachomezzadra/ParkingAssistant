@@ -8,14 +8,14 @@
 
 import Foundation
 
-class SmsDetails {
+class SmsFormat {
 
     
     let SPACE: String = " "
     
     let smsNumber: String
     
-    var smsBody: [SmsBodyOption] = [SmsBodyOption]()
+    var smsBody: [String] = [String]()
 
     var actualBlock: String
     var actualStreet: String
@@ -33,7 +33,11 @@ class SmsDetails {
     }
 
     func add(option: SmsBodyOption) {
-        self.smsBody.append(option)
+        self.smsBody.append(option.rawValue)
+    }
+    
+    func add(keyword: String) {
+        self.smsBody.append(keyword)
     }
     
     
@@ -46,22 +50,27 @@ class SmsDetails {
         return str
     }
     
-    private func eval(option: SmsBodyOption) -> String {
+    private func eval(option: String) -> String {
         switch option {
-        case SmsBodyOption.Block:
+        case SmsBodyOption.Block.rawValue:
             return self.actualBlock
-        case SmsBodyOption.LicensePlate:
+        case SmsBodyOption.LicensePlate.rawValue:
             return self.actualLicensePlate
-        case SmsBodyOption.Street:
+        case SmsBodyOption.Street.rawValue:
             return self.actualStreet
-        case SmsBodyOption.Hours:
+        case SmsBodyOption.Hours.rawValue:
             return self.actualHours
-        case SmsBodyOption.Keyword:
-            return self.actualKeyword
         default:
-            return ""
+            return option
         }
         
+    }
+    
+    func fillOutVariables(actualLicensePlate: String, actualBlock: String, actualStreet: String, actualHours: String) {
+        self.actualLicensePlate = actualLicensePlate
+        self.actualBlock = actualBlock
+        self.actualStreet = actualStreet
+        self.actualHours = actualHours    
     }
     
 }

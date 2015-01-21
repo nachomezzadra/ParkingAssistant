@@ -11,7 +11,6 @@ import Foundation
 enum SmsBodyOption: String {
     case Block = "<BLOCK>"
     case Hours = "<HOURS>"
-    case Keyword = "<KEYWORD>"
     case LicensePlate = "<LICENSE_PLATE>"
     case Street = "<STREET>"
 }

@@ -14,13 +14,14 @@ class City {
     let name: String
     let latitude: Double
     let longitude: Double
-    let smsInfo: SmsDetails
+    let smsParkingSet: SmsParkingSet
     
-    init(name:String, latitude:Double, longitude:Double, smsInfo: SmsDetails) {
+    
+    init(name:String, latitude:Double, longitude:Double, smsParkingSet: SmsParkingSet) {
         self.latitude = latitude
         self.longitude = longitude
         self.name = name
-        self.smsInfo = smsInfo
+        self.smsParkingSet = smsParkingSet
     }
 
 }

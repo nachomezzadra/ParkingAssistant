@@ -44,9 +44,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, MFMessageComposeVi
     
     func doFillInformationLabels(parkingManager: ParkingManager) {
         locationTargetLabel.text = parkingManager.getCityName()
-        smsDetails.text = parkingManager.getSmsDetails().toString()
+        smsDetails.text = parkingManager.getStartSmsDetails().toString()
         licensePlateLabel.text = parkingManager.getLicensePlate()
-        smsNumber.text = parkingManager.getSmsDetails().smsNumber
+        smsNumber.text = parkingManager.getStartSmsDetails().smsNumber
     }
     
     
@@ -55,7 +55,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, MFMessageComposeVi
         self.doFillInformationLabels(parkingManager)
 
         
-        var smsDetails: SmsDetails = parkingManager.fillOutMessageDetails()
+        var smsDetails: SmsFormat = parkingManager.fillOutMessageDetails()
         
         if (smsSender.canSendText()) {
             let messageComposeVC = smsSender.configuredMessageComposeViewController(smsDetails)

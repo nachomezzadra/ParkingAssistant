@@ -15,17 +15,18 @@ class Places {
 
 
     init() {
-        var smsDetailsTandil: SmsDetails = getSmsDetailsTandil()
-        var smsDetailsLaPlata = getSmsDetailsLaPlata()
-        var smsDetailsJunin = getSmsDetailsJunin()
-        var smsDetailsMarDelPlata = getSmsDetailsMarDelPlata()
-        var smsDetailsMoron = getSmsDetailsMoron()
+        var smsParkingSetTandil: SmsParkingSet = getSmsDetailsTandil()
+        var smsParkingSetLaPlata: SmsParkingSet = getSmsDetailsLaPlata()
+        var smsParkingSetJunin: SmsParkingSet = getSmsDetailsJunin()
+        var smsParkingSetMarDelPlata: SmsParkingSet = getSmsDetailsMarDelPlata()
+        var smsParkingSetMoron: SmsParkingSet = getSmsDetailsMoron()
         
-        dictionary["Tandil"] = City(name: "Tandil", latitude: -37.3167, longitude: -59.15, smsInfo: smsDetailsTandil)
-        dictionary["La Plata"] = City(name: "La Plata", latitude: 000, longitude: 000, smsInfo: smsDetailsLaPlata)
-        dictionary["Junin"] = City(name: "Junin", latitude: -34.585, longitude: -60.9589, smsInfo: smsDetailsJunin)
-        dictionary["Mar del Plata"] = City(name: "Mar del Plata", latitude: -38, longitude: -57.55, smsInfo: smsDetailsMarDelPlata)
-        dictionary["Moron"] = City(name: "Moron", latitude: -1, longitude: -1, smsInfo: smsDetailsMoron)
+        
+        dictionary["Tandil"] = City(name: "Tandil", latitude: -37.3167, longitude: -59.15, smsParkingSet: smsParkingSetTandil)
+        dictionary["La Plata"] = City(name: "La Plata", latitude: 000, longitude: 000, smsParkingSet: smsParkingSetLaPlata)
+        dictionary["Junin"] = City(name: "Junin", latitude: -34.585, longitude: -60.9589, smsParkingSet: smsParkingSetJunin)
+        dictionary["Mar del Plata"] = City(name: "Mar del Plata", latitude: -38, longitude: -57.55, smsParkingSet: smsParkingSetMarDelPlata)
+        dictionary["Moron"] = City(name: "Moron", latitude: -1, longitude: -1, smsParkingSet: smsParkingSetMoron)
         
         // assigning all the dictionary elements to an array of keys
         self.keys = [String] (dictionary.keys)
@@ -49,42 +50,61 @@ class Places {
         return self.getCityFrom(cityAsStr)!
     }
     
-    private func getSmsDetailsTandil() -> SmsDetails {
-        var smsDetailsTandil: SmsDetails = SmsDetails(smsNumber: "66736")
-        smsDetailsTandil.add(SmsBodyOption.LicensePlate)
-        smsDetailsTandil.add(SmsBodyOption.Hours)
-        smsDetailsTandil.add(SmsBodyOption.Street)
-        smsDetailsTandil.add(SmsBodyOption.Block)
-        smsDetailsTandil.actualHours = "1"
-        return smsDetailsTandil
+    private func getSmsDetailsTandil() -> SmsParkingSet {
+        var smsFormat: SmsFormat = SmsFormat(smsNumber: "66736")
+        smsFormat.add(SmsBodyOption.LicensePlate)
+        smsFormat.add(SmsBodyOption.Hours)
+        smsFormat.add(SmsBodyOption.Street)
+        smsFormat.add(SmsBodyOption.Block)
+        
+        var smsParkingSet: SmsParkingSet = SmsParkingSet(smsStart: smsFormat, smsStop: nil, smsRegister: nil, smsCard: nil, smsBalance: nil)
+        
+        return smsParkingSet
     }
     
     /**
-    Otra forma es la carga por celular a través de un mensaje de texto. Cuando se intenta cargar por primera vez, debe enviarse un SMS al 54223 con la palabra "R" para registrarse. Luego se recibirá una clave de acceso. Y a partir de ese momento queda registrado el número de teléfono al sistema. Una vez registrado, se debe raspar la tarjeta y aparecerá un código. Cada vez que se pretenda renovar el tiempo de estacionamiento, el usuario debe mandar un SMS al 54223 con la letra "T" y el número de pin que figura en la tarjeta. Ya para estacionar, debe enviar el mismo SMS pero con la palabra "E" con los datos de la patente. Y para finalizar el tiempo de estacionamiento, un último SMS al 54223 con la letra "F" y con la patente.
+    Otra forma es la carga por celular a través de un mensaje de texto. Cuando se intenta cargar por primera vez, debe enviarse un SMS al 54223 con la palabra "R" para registrarse. 
+        Luego se recibirá una clave de acceso. Y a partir de ese momento queda registrado el número de teléfono al sistema. Una vez registrado, se debe raspar la tarjeta y aparecerá un código. Cada vez que se pretenda renovar el tiempo de estacionamiento, el usuario debe mandar un SMS al 54223 con la letra "T" y el número de pin que figura en la tarjeta. Ya para estacionar, debe enviar el mismo SMS pero con la palabra "E" con los datos de la patente. Y para finalizar el tiempo de estacionamiento, un último SMS al 54223 con la letra "F" y con la patente.
 
     **/
-    private func getSmsDetailsMarDelPlata() -> SmsDetails {
-        var smsDetailsMarDelPlata: SmsDetails = SmsDetails(smsNumber: "54223")
-        smsDetailsMarDelPlata.add(SmsBodyOption.Keyword)
-        smsDetailsMarDelPlata.actualKeyword = "E"
-        smsDetailsMarDelPlata.add(SmsBodyOption.LicensePlate)
-        return smsDetailsMarDelPlata
+    private func getSmsDetailsMarDelPlata() -> SmsParkingSet {
+        var smsStart: SmsFormat = SmsFormat(smsNumber: "54223")
+        smsStart.add("E")
+        smsStart.add(SmsBodyOption.LicensePlate)
+        
+        var smsRegister: SmsFormat = SmsFormat(smsNumber: "54223")
+        smsRegister.add("R")
+        
+        var smsStop: SmsFormat = SmsFormat(smsNumber: "54223")
+        smsStop.add("F")
+        smsStop.add(SmsBodyOption.LicensePlate)
+        
+        
+        var smsParkingSet: SmsParkingSet = SmsParkingSet(smsStart: smsStart, smsStop: smsStop, smsRegister: smsRegister, smsCard: nil, smsBalance: nil)
+        
+        
+        return smsParkingSet
     }
 
-    private func getSmsDetailsLaPlata() -> SmsDetails {
-        var smsDetailsLp: SmsDetails = SmsDetails(smsNumber: "6357")
-        smsDetailsLp.add(SmsBodyOption.Keyword)
-        smsDetailsLp.actualKeyword = "E"
-        smsDetailsLp.add(SmsBodyOption.LicensePlate)
-        return smsDetailsLp
+    private func getSmsDetailsLaPlata() -> SmsParkingSet {
+        var smsStart: SmsFormat = SmsFormat(smsNumber: "6357")
+        smsStart.add("E")
+        smsStart.add(SmsBodyOption.LicensePlate)
+        
+        var smsParkingSet: SmsParkingSet = SmsParkingSet(smsStart: smsStart, smsStop: nil, smsRegister: nil, smsCard: nil, smsBalance: nil)
+        
+        return smsParkingSet
     }
     
-    private func getSmsDetailsJunin() -> SmsDetails {
-        var smsDetailsJunin: SmsDetails = SmsDetails(smsNumber: "37822")
-        smsDetailsJunin.actualKeyword = "J"
-        smsDetailsJunin.add(SmsBodyOption.Keyword)
-        smsDetailsJunin.add(SmsBodyOption.LicensePlate)
-        return smsDetailsJunin
+    private func getSmsDetailsJunin() -> SmsParkingSet {
+        var smsStart: SmsFormat = SmsFormat(smsNumber: "37822")
+        smsStart.add("J")
+        smsStart.add(SmsBodyOption.LicensePlate)
+        
+        var smsParkingSet: SmsParkingSet = SmsParkingSet(smsStart: smsStart, smsStop: nil, smsRegister: nil, smsCard: nil, smsBalance: nil)
+        
+        
+        return smsParkingSet
     }
     
     /*
@@ -96,11 +116,24 @@ class Places {
     
     El conductor podrá consultar su saldo cuando lo deseé enviando E SALDO al 86527.
     */
-    private func getSmsDetailsMoron() -> SmsDetails {
-        var smsDetails = SmsDetails(smsNumber: "86527")
-        smsDetails.actualKeyword = "E"
-        smsDetails.add(SmsBodyOption.Keyword)
-        smsDetails.add(SmsBodyOption.LicensePlate)
-        return smsDetails
+    private func getSmsDetailsMoron() -> SmsParkingSet {
+        var smsStart = SmsFormat(smsNumber: "86527")
+        smsStart.add("E")
+        smsStart.add(SmsBodyOption.LicensePlate)
+        
+        var smsRegister: SmsFormat = SmsFormat(smsNumber: "86527")
+        smsRegister.add("E")
+        
+        var smsStop: SmsFormat = SmsFormat(smsNumber: "86527")
+        smsStop.add("E")
+        smsStop.add("FIN")
+        
+        var smsBalance: SmsFormat = SmsFormat(smsNumber: "86527")
+        smsBalance.add("E")
+        smsBalance.add("SALDO")
+        
+        var smsParkingSet: SmsParkingSet = SmsParkingSet(smsStart: smsStart, smsStop: smsStop, smsRegister: smsRegister, smsCard: nil, smsBalance: nil)
+        
+        return smsParkingSet
     }
 }
