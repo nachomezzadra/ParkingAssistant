@@ -19,10 +19,14 @@ class ViewController: UIViewController, UIPickerViewDelegate, MFMessageComposeVi
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var successLabel: UILabel!
     @IBOutlet weak var smsNumber: UILabel!
+    @IBOutlet weak var cardNumberLabel: UILabel!
+    @IBOutlet weak var cardTextField: UITextField!
+    @IBOutlet weak var cardRegistrationButton: UIButton!
     
     var currentLocation: CurrentLocation!
     let places: Places = Places()
     let smsSender = SmsSender()
+    var parkingManager: ParkingManager!
    
     
     override func viewDidLoad() {
@@ -44,31 +48,21 @@ class ViewController: UIViewController, UIPickerViewDelegate, MFMessageComposeVi
     
     func doFillInformationLabels(parkingManager: ParkingManager) {
         locationTargetLabel.text = parkingManager.getCityName()
-        smsDetails.text = parkingManager.getStartSmsDetails().toString()
+        smsDetails.text = parkingManager.getStartParkingSmsFormat().toString()
         licensePlateLabel.text = parkingManager.getLicensePlate()
-        smsNumber.text = parkingManager.getStartSmsDetails().smsNumber
+        smsNumber.text = parkingManager.getStartParkingSmsFormat().smsNumber
+    }
+
+    
+    @IBAction func sendRegistrationSms(sender: AnyObject) {
+        let text : String = self.cardTextField!.text
+        var smsFormat: SmsFormat? = parkingManager.getCardSmsFormat(text)
+        doSendSms(smsFormat!)
     }
     
-    
     @IBAction func doPark(sender: AnyObject) {
-        let parkingManager = ParkingManager(currentLocation: self.currentLocation)
-        self.doFillInformationLabels(parkingManager)
-
-        
-        var smsDetails: SmsFormat = parkingManager.fillOutMessageDetails()
-        
-        if (smsSender.canSendText()) {
-            let messageComposeVC = smsSender.configuredMessageComposeViewController(smsDetails)
-            
-            // Present the configured MFMessageComposeViewController instance
-            // Note that the dismissal of the VC will be handled by the messageComposer instance,
-            // since it implements the appropriate delegate call-back
-            presentViewController(messageComposeVC, animated: true, completion: nil)
-        } else {
-            // Let the user know if his/her device isn't able to send text messages
-            let errorAlert = UIAlertView(title: "Cannot Send Text Message", message: "Your device is not able to send text messages. Manually send an SMS to " + smsDetails.smsNumber + " the following message: " + smsDetails.toString(), delegate: self, cancelButtonTitle: "OK")
-            errorAlert.show()
-        }
+        var smsFormat: SmsFormat = parkingManager.getStartParkingSmsFormat()
+        doSendSms(smsFormat)
     }
     
     @IBAction func findCurrentLocation(sender: AnyObject) {
@@ -79,6 +73,20 @@ class ViewController: UIViewController, UIPickerViewDelegate, MFMessageComposeVi
     
     }
     
+    func doSendSms(smsFormat: SmsFormat) {
+        if (smsSender.canSendText()) {
+            let messageComposeVC = smsSender.configuredMessageComposeViewController(smsFormat)
+            
+            // Present the configured MFMessageComposeViewController instance
+            // Note that the dismissal of the VC will be handled by the messageComposer instance,
+            // since it implements the appropriate delegate call-back
+            presentViewController(messageComposeVC, animated: true, completion: nil)
+        } else {
+            // Let the user know if his/her device isn't able to send text messages
+            let errorAlert = UIAlertView(title: "Cannot Send Text Message", message: "Your device is not able to send text messages. Manually send an SMS to " + smsFormat.smsNumber + " the following message: " + smsFormat.toString(), delegate: self, cancelButtonTitle: "OK")
+            errorAlert.show()
+        }
+    }
     
     ///////////// picker view ////////////////
     
@@ -97,6 +105,12 @@ class ViewController: UIViewController, UIPickerViewDelegate, MFMessageComposeVi
 
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         setCurrentLocationForId(row)
+        
+        self.parkingManager = ParkingManager(currentLocation: self.currentLocation)
+        
+        cardNumberLabel.hidden = !parkingManager.requiresParkingCard()
+        cardTextField.hidden = !parkingManager.requiresParkingCard()
+        cardRegistrationButton.hidden = !parkingManager.requiresParkingCard()
     }
     
     //////////// sms sender ////////////
@@ -120,6 +134,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, MFMessageComposeVi
             break;
         }
     }
+    
+    
+    
 
 }
 

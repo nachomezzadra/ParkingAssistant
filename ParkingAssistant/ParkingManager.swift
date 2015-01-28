@@ -15,7 +15,6 @@ public class ParkingManager {
     var currentLocation: CurrentLocation
     
     
-    
     init(currentLocation: CurrentLocation) {
         self.currentLocation = currentLocation
     }
@@ -25,18 +24,27 @@ public class ParkingManager {
         return self.currentLocation.getCurrentCity().name
     }
     
-    func getStartSmsDetails() -> SmsFormat {
-        return fillOutMessageDetails()
+    func getStartParkingSmsFormat() -> SmsFormat {
+        fillOutMessageDetails(nil)
+        return currentLocation.getCurrentCity().smsParkingSet.smsStart
     }
     
-    func fillOutMessageDetails() -> SmsFormat {
-        currentLocation.getCurrentCity().smsParkingSet.fillOutVariables(self.user1.licensePlate, actualBlock: self.currentLocation.getCurrentBlock(), actualStreet: self.currentLocation.getCurrentStreet(), actualHours: "1")
-
-        return currentLocation.getCurrentCity().smsParkingSet.smsStart
+    func getCardSmsFormat(cardNumber: String) -> SmsFormat {
+        fillOutMessageDetails(cardNumber)
+        return currentLocation.getCurrentCity().smsParkingSet.smsCard!
+    }
+    
+    private func fillOutMessageDetails(cardNumber: String?) {
+        currentLocation.getCurrentCity().smsParkingSet.fillOutVariables(self.user1.licensePlate, actualBlock: self.currentLocation.getCurrentBlock(), actualStreet: self.currentLocation.getCurrentStreet(), actualHours: "1", cardNumber: cardNumber)
     }
     
     func getLicensePlate() -> String {
         return self.user1.licensePlate
     }
+    
+    func requiresParkingCard() -> Bool {
+        return self.currentLocation.getCurrentCity().requiresParkingCard()
+    }
+    
     
 }

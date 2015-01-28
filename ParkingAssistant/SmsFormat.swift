@@ -22,6 +22,7 @@ class SmsFormat {
     var actualLicensePlate: String
     var actualHours: String
     var actualKeyword: String
+    var cardNumber: String
     
     init(smsNumber: String) {
         self.smsNumber = smsNumber
@@ -30,6 +31,7 @@ class SmsFormat {
         self.actualLicensePlate = ""
         self.actualHours = ""
         self.actualKeyword = ""
+        self.cardNumber = ""
     }
 
     func add(option: SmsBodyOption) {
@@ -60,17 +62,22 @@ class SmsFormat {
             return self.actualStreet
         case SmsBodyOption.Hours.rawValue:
             return self.actualHours
+        case SmsBodyOption.CardNumber.rawValue:
+            return self.cardNumber
         default:
             return option
         }
         
     }
     
-    func fillOutVariables(actualLicensePlate: String, actualBlock: String, actualStreet: String, actualHours: String) {
+    func fillOutVariables(actualLicensePlate: String, actualBlock: String, actualStreet: String, actualHours: String, cardNumber: String?) {
         self.actualLicensePlate = actualLicensePlate
         self.actualBlock = actualBlock
         self.actualStreet = actualStreet
-        self.actualHours = actualHours    
+        self.actualHours = actualHours
+        if (cardNumber != nil) {
+            self.cardNumber = cardNumber!
+        }
     }
     
 }

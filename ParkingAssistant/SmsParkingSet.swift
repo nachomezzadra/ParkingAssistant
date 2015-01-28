@@ -26,24 +26,24 @@ class SmsParkingSet {
         self.smsBalance = smsBalance
     }
     
-    func fillOutVariables(actualLicensePlate: String, actualBlock: String, actualStreet: String, actualHours: String) {
-        smsStart.fillOutVariables(actualLicensePlate, actualBlock: actualBlock, actualStreet: actualStreet, actualHours: actualHours)
+    func fillOutVariables(actualLicensePlate: String, actualBlock: String, actualStreet: String, actualHours: String, cardNumber: String?) {
+        smsStart.fillOutVariables(actualLicensePlate, actualBlock: actualBlock, actualStreet: actualStreet, actualHours: actualHours, cardNumber: nil)
 
         if (self.hasStopSms()) {
-            smsStop!.fillOutVariables(actualLicensePlate, actualBlock: actualBlock, actualStreet: actualStreet, actualHours: actualHours)
+            smsStop!.fillOutVariables(actualLicensePlate, actualBlock: actualBlock, actualStreet: actualStreet, actualHours: actualHours, cardNumber: nil)
         }
         
 
         if (self.hasRegisterSms()) {
-            smsRegister!.fillOutVariables(actualLicensePlate, actualBlock: actualBlock, actualStreet: actualStreet, actualHours: actualHours)
+            smsRegister!.fillOutVariables(actualLicensePlate, actualBlock: actualBlock, actualStreet: actualStreet, actualHours: actualHours, cardNumber: nil)
         }
 
         if (self.hasCardSms()) {
-            smsCard!.fillOutVariables(actualLicensePlate, actualBlock: actualBlock, actualStreet: actualStreet, actualHours: actualHours)
+            smsCard!.fillOutVariables(actualLicensePlate, actualBlock: actualBlock, actualStreet: actualStreet, actualHours: actualHours, cardNumber: cardNumber)
         }
 
         if (self.hasBalanceSms()) {
-            smsBalance!.fillOutVariables(actualLicensePlate, actualBlock: actualBlock, actualStreet: actualStreet, actualHours: actualHours)
+            smsBalance!.fillOutVariables(actualLicensePlate, actualBlock: actualBlock, actualStreet: actualStreet, actualHours: actualHours, cardNumber: nil)
         }
     }
     

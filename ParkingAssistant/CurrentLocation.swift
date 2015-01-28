@@ -15,5 +15,7 @@ protocol CurrentLocation {
     func getCurrentStreet() -> String
     
     func getCurrentBlock() -> String
+    
+    
 
 }

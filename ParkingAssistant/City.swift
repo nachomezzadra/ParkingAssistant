@@ -23,5 +23,9 @@ class City {
         self.name = name
         self.smsParkingSet = smsParkingSet
     }
+    
+    func requiresParkingCard() -> Bool {
+        return self.smsParkingSet.hasCardSms()
+    }
 
 }

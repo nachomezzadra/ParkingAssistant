@@ -13,4 +13,5 @@ enum SmsBodyOption: String {
     case Hours = "<HOURS>"
     case LicensePlate = "<LICENSE_PLATE>"
     case Street = "<STREET>"
+    case CardNumber = "<CARD_NUMBER>"
 }

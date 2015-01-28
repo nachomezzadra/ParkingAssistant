@@ -79,8 +79,12 @@ class Places {
         smsStop.add("F")
         smsStop.add(SmsBodyOption.LicensePlate)
         
+        var smsCard: SmsFormat = SmsFormat(smsNumber: "54223")
+        smsCard.add("T")
+        smsCard.add(SmsBodyOption.CardNumber)
         
-        var smsParkingSet: SmsParkingSet = SmsParkingSet(smsStart: smsStart, smsStop: smsStop, smsRegister: smsRegister, smsCard: nil, smsBalance: nil)
+        
+        var smsParkingSet: SmsParkingSet = SmsParkingSet(smsStart: smsStart, smsStop: smsStop, smsRegister: smsRegister, smsCard: smsCard, smsBalance: nil)
         
         
         return smsParkingSet
