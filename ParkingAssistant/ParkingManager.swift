@@ -13,6 +13,7 @@ public class ParkingManager {
     
     let user1 = User(licensePlate: "NFV743")
     var currentLocation: CurrentLocation
+    var currentState: CurrentState = CurrentState()
     
     
     init(currentLocation: CurrentLocation) {
@@ -44,6 +45,25 @@ public class ParkingManager {
     
     func requiresParkingCard() -> Bool {
         return self.currentLocation.getCurrentCity().requiresParkingCard()
+    }
+    
+    
+    func doPark() {
+        self.currentState.startParking()
+    }
+    
+    func stopParking() {
+        self.currentState.stopParking()
+    }
+    
+    func getLastUpdateTimeStamp() -> NSDate {
+        let startedParking = self.currentState.lastUpdateTimeStamp
+        let newDate = NSCalendar.currentCalendar().dateByAddingUnit(
+            .CalendarUnitHour,
+            value: 2,
+            toDate: startedParking,
+            options: NSCalendarOptions(0))
+        return newDate!
     }
     
     

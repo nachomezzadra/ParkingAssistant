@@ -22,12 +22,14 @@ class ViewController: UIViewController, UIPickerViewDelegate, MFMessageComposeVi
     @IBOutlet weak var cardNumberLabel: UILabel!
     @IBOutlet weak var cardTextField: UITextField!
     @IBOutlet weak var cardRegistrationButton: UIButton!
+    @IBOutlet weak var timeCounterLabel: UILabel!
     
     var currentLocation: CurrentLocation!
     let places: Places = Places()
     let smsSender = SmsSender()
     var parkingManager: ParkingManager!
-   
+    var timeCounter = 0
+    var timer = NSTimer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,6 +88,46 @@ class ViewController: UIViewController, UIPickerViewDelegate, MFMessageComposeVi
             let errorAlert = UIAlertView(title: "Cannot Send Text Message", message: "Your device is not able to send text messages. Manually send an SMS to " + smsFormat.smsNumber + " the following message: " + smsFormat.toString(), delegate: self, cancelButtonTitle: "OK")
             errorAlert.show()
         }
+        
+        parkingManager.doPark()
+        doStartTimer()
+    }
+    
+    ///////////// timer //////////////////
+    
+    func doStartTimer() {
+        timeCounterLabel.hidden = false
+        timeCounterLabel.text = String(timeCounter)
+        timer = NSTimer.scheduledTimerWithTimeInterval(1, target:self, selector: Selector("updateCounter"), userInfo: nil, repeats: true)
+    }
+    
+    func updateCounter() {
+        var elapsedTime = abs(parkingManager.getLastUpdateTimeStamp().timeIntervalSinceNow)
+
+        //calculate the hours in elapsed time
+        let hours = UInt8(elapsedTime / 60.0 / 60.0)
+        elapsedTime -= (NSTimeInterval(hours) * 60 * 60)
+
+        //calculate the minutes in elapsed time
+        let minutes = UInt8(elapsedTime / 60.0)
+        elapsedTime -= (NSTimeInterval(minutes) * 60)
+        
+        //calculate the seconds in elapsed time
+        let seconds = UInt8(elapsedTime)
+        elapsedTime -= NSTimeInterval(seconds)
+        
+        //fraction of milliseconds
+        let fraction = UInt8(elapsedTime * 100)
+        
+        //add the leading zero for minutues, seconds and milliseconds, store
+        // as string constants
+        let strHours = hours > 9 ? String(hours): "0" + String(hours)
+        let strMinutes = minutes > 9 ? String(minutes): "0" + String(minutes)
+        let strSeconds = seconds > 9 ? String(seconds): "0" + String(seconds)
+        
+        
+        //concatonate hours, mins, and seconds, assign to UILable timeCounter
+        timeCounterLabel.text = "\(strHours):\(strMinutes):\(strSeconds)"
     }
     
     ///////////// picker view ////////////////
