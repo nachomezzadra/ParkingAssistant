@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		662C42BF1A79A8C50024741E /* ParkingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662C42BE1A79A8C50024741E /* ParkingState.swift */; };
+		662C42C11A79A9840024741E /* CurrentState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662C42C01A79A9840024741E /* CurrentState.swift */; };
 		665E75591A65D98800AD3AE3 /* ViewControllerOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665E75581A65D98800AD3AE3 /* ViewControllerOld.swift */; };
 		665E755B1A68859100AD3AE3 /* CurrentLocationAuto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665E755A1A68859100AD3AE3 /* CurrentLocationAuto.swift */; };
 		665E755D1A68864E00AD3AE3 /* CurrentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665E755C1A68864E00AD3AE3 /* CurrentLocation.swift */; };
@@ -41,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		662C42BE1A79A8C50024741E /* ParkingState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingState.swift; sourceTree = "<group>"; };
+		662C42C01A79A9840024741E /* CurrentState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentState.swift; sourceTree = "<group>"; };
 		665E75581A65D98800AD3AE3 /* ViewControllerOld.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerOld.swift; sourceTree = "<group>"; };
 		665E755A1A68859100AD3AE3 /* CurrentLocationAuto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLocationAuto.swift; sourceTree = "<group>"; };
 		665E755C1A68864E00AD3AE3 /* CurrentLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLocation.swift; sourceTree = "<group>"; };
@@ -88,6 +92,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		662C42BD1A79A8B20024741E /* parking */ = {
+			isa = PBXGroup;
+			children = (
+				666AA87C1A3A6E6000B9E548 /* ParkingManager.swift */,
+				662C42BE1A79A8C50024741E /* ParkingState.swift */,
+				662C42C01A79A9840024741E /* CurrentState.swift */,
+			);
+			name = parking;
+			sourceTree = "<group>";
+		};
 		666840471A45187800A0EB15 /* location */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,9 +177,9 @@
 		666AA8761A3A6E1900B9E548 /* domain */ = {
 			isa = PBXGroup;
 			children = (
+				662C42BD1A79A8B20024741E /* parking */,
 				666840471A45187800A0EB15 /* location */,
 				666AA8891A3A6E7800B9E548 /* sms */,
-				666AA87C1A3A6E6000B9E548 /* ParkingManager.swift */,
 				666AA87F1A3A6E6000B9E548 /* User.swift */,
 			);
 			name = domain;
@@ -286,6 +300,7 @@
 				666840461A45182F00A0EB15 /* OneShotLocationManager.swift in Sources */,
 				6668403C1A40EE1500A0EB15 /* SmsFormatTandil.swift in Sources */,
 				666AA8871A3A6E6000B9E548 /* SmsSender.swift in Sources */,
+				662C42C11A79A9840024741E /* CurrentState.swift in Sources */,
 				666AA8591A3A6E0200B9E548 /* ViewController.swift in Sources */,
 				666AA8861A3A6E6000B9E548 /* SmsFormat.swift in Sources */,
 				6689BFAF1A48C3CF00A0F688 /* SmsBodyOption.swift in Sources */,
@@ -295,6 +310,7 @@
 				665E75591A65D98800AD3AE3 /* ViewControllerOld.swift in Sources */,
 				666AA8801A3A6E6000B9E548 /* City.swift in Sources */,
 				665E755B1A68859100AD3AE3 /* CurrentLocationAuto.swift in Sources */,
+				662C42BF1A79A8C50024741E /* ParkingState.swift in Sources */,
 				665E755D1A68864E00AD3AE3 /* CurrentLocation.swift in Sources */,
 				666AA8821A3A6E6000B9E548 /* CurrentLocationManual.swift in Sources */,
 				666AA8851A3A6E6000B9E548 /* ParkingManager.swift in Sources */,
