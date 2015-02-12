@@ -39,6 +39,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, MFMessageComposeVi
         // Do any additional setup after loading the view, typically from a nib.
         setCurrentLocationForId(0)
         updateWithCurrentCity()
+        doFillInformationLabels(self.parkingManager)
     }
 
     func setCurrentLocationForId(cityId: Int) {
@@ -194,6 +195,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, MFMessageComposeVi
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         setCurrentLocationForId(row)
         updateWithCurrentCity()
+        doFillInformationLabels(self.parkingManager)
     }
 
     //////////// sms sender ////////////
