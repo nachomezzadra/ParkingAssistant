@@ -8,10 +8,10 @@
 
 import Foundation
 
-class CurrentState {
+class CurrentState: Printable {
 
-    var lastUpdateTimeStamp: NSDate = NSDate()
-    var currentState: ParkingState = ParkingState.Idle
+    private var lastUpdateTimeStamp = NSDate()
+    private var currentState: ParkingState = ParkingState.Idle
 
     func startParking() {
         if (self.currentState == ParkingState.Parked) {
@@ -19,6 +19,7 @@ class CurrentState {
         }
         self.currentState = ParkingState.Parked
         self.lastUpdateTimeStamp = NSDate()
+        println("Started parking at \(self.lastUpdateTimeStamp)")
 
     }
 
@@ -28,5 +29,18 @@ class CurrentState {
         }
         self.currentState = ParkingState.Idle
         self.lastUpdateTimeStamp = NSDate()
+        println("Stopped parking at \(self.lastUpdateTimeStamp)")
+    }
+    
+    func getLastUpdateTimeStamp() -> NSDate {
+        return self.lastUpdateTimeStamp
+    }
+    
+    func isParked() -> Bool {
+        return self.currentState == ParkingState.Parked
+    }
+    
+    var description: String {
+        return "Current State:: \(currentState.rawValue)"
     }
 }

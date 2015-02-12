@@ -11,9 +11,9 @@ import Foundation
 
 public class ParkingManager {
     
-    let user1 = User(licensePlate: "NFV743")
-    var currentLocation: CurrentLocation
-    var currentState: CurrentState = CurrentState()
+    private let user1 = User(licensePlate: "NFV743")
+    private var currentLocation: CurrentLocation
+    private var currentState = CurrentState()
     
     
     init(currentLocation: CurrentLocation) {
@@ -29,12 +29,17 @@ public class ParkingManager {
         fillOutMessageDetails(nil)
         return currentLocation.getCurrentCity().smsParkingSet.smsStart
     }
-    
+
+    func getStopSmsFormat() -> SmsFormat {
+        fillOutMessageDetails(nil)
+        return currentLocation.getCurrentCity().smsParkingSet.smsStop!
+    }
+
     func getCardSmsFormat(cardNumber: String) -> SmsFormat {
         fillOutMessageDetails(cardNumber)
         return currentLocation.getCurrentCity().smsParkingSet.smsCard!
     }
-    
+
     private func fillOutMessageDetails(cardNumber: String?) {
         currentLocation.getCurrentCity().smsParkingSet.fillOutVariables(self.user1.licensePlate, actualBlock: self.currentLocation.getCurrentBlock(), actualStreet: self.currentLocation.getCurrentStreet(), actualHours: "1", cardNumber: cardNumber)
     }
@@ -47,6 +52,10 @@ public class ParkingManager {
         return self.currentLocation.getCurrentCity().requiresParkingCard()
     }
     
+    func hasStopCapability() -> Bool {
+        return currentLocation.getCurrentCity().smsParkingSet.smsStop != nil
+    }
+    
     
     func doPark() {
         self.currentState.startParking()
@@ -56,14 +65,22 @@ public class ParkingManager {
         self.currentState.stopParking()
     }
     
+    func isParked() -> Bool {
+        return self.currentState.isParked()
+    }
+    
+    func getCurrentState() -> CurrentState {
+        return self.currentState
+    }
+    
     func getLastUpdateTimeStamp() -> NSDate {
-        let startedParking = self.currentState.lastUpdateTimeStamp
-        let newDate = NSCalendar.currentCalendar().dateByAddingUnit(
+        var startedParking = self.currentState.getLastUpdateTimeStamp()
+        /*let newDate = NSCalendar.currentCalendar().dateByAddingUnit(
             .CalendarUnitHour,
             value: 2,
             toDate: startedParking,
-            options: NSCalendarOptions(0))
-        return newDate!
+            options: NSCalendarOptions(0))*/
+        return startedParking
     }
     
     

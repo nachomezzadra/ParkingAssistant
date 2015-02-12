@@ -27,5 +27,9 @@ class City {
     func requiresParkingCard() -> Bool {
         return self.smsParkingSet.hasCardSms()
     }
+    
+    func hasStopCapability() -> Bool {
+        return self.smsParkingSet.hasStopSms()
+    }
 
 }

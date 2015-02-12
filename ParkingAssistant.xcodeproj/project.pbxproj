@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		661D95A51A84292E0033F7EA /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661D95A41A84292E0033F7EA /* Timer.swift */; };
 		662C42BF1A79A8C50024741E /* ParkingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662C42BE1A79A8C50024741E /* ParkingState.swift */; };
 		662C42C11A79A9840024741E /* CurrentState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662C42C01A79A9840024741E /* CurrentState.swift */; };
 		665E75591A65D98800AD3AE3 /* ViewControllerOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665E75581A65D98800AD3AE3 /* ViewControllerOld.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		661D95A41A84292E0033F7EA /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		662C42BE1A79A8C50024741E /* ParkingState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingState.swift; sourceTree = "<group>"; };
 		662C42C01A79A9840024741E /* CurrentState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentState.swift; sourceTree = "<group>"; };
 		665E75581A65D98800AD3AE3 /* ViewControllerOld.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerOld.swift; sourceTree = "<group>"; };
@@ -92,6 +94,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		661D95A31A8428F00033F7EA /* timer */ = {
+			isa = PBXGroup;
+			children = (
+				661D95A41A84292E0033F7EA /* Timer.swift */,
+			);
+			name = timer;
+			sourceTree = "<group>";
+		};
 		662C42BD1A79A8B20024741E /* parking */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +187,7 @@
 		666AA8761A3A6E1900B9E548 /* domain */ = {
 			isa = PBXGroup;
 			children = (
+				661D95A31A8428F00033F7EA /* timer */,
 				662C42BD1A79A8B20024741E /* parking */,
 				666840471A45187800A0EB15 /* location */,
 				666AA8891A3A6E7800B9E548 /* sms */,
@@ -246,6 +257,11 @@
 				TargetAttributes = {
 					666AA8501A3A6E0200B9E548 = {
 						CreatedOnToolsVersion = 6.1.1;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 					666AA8651A3A6E0200B9E548 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -305,6 +321,7 @@
 				666AA8861A3A6E6000B9E548 /* SmsFormat.swift in Sources */,
 				6689BFAF1A48C3CF00A0F688 /* SmsBodyOption.swift in Sources */,
 				666840421A44E6E700A0EB15 /* Places.swift in Sources */,
+				661D95A51A84292E0033F7EA /* Timer.swift in Sources */,
 				666AA8571A3A6E0200B9E548 /* AppDelegate.swift in Sources */,
 				6689D4D01A6F26410002663D /* SmsParkingSet.swift in Sources */,
 				665E75591A65D98800AD3AE3 /* ViewControllerOld.swift in Sources */,
@@ -441,6 +458,7 @@
 				INFOPLIST_FILE = ParkingAssistant/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -451,6 +469,7 @@
 				INFOPLIST_FILE = ParkingAssistant/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
