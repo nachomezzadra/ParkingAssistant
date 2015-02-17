@@ -26,7 +26,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, MFMessageComposeVi
     @IBOutlet weak var timeCounterLabel: UILabel!
     @IBOutlet weak var stopParkingButton: UIButton!
     @IBOutlet weak var startParkingButton: UIButton!
+    
+    @IBOutlet weak var locationSegmentedControl: UISegmentedControl!
 
+    @IBOutlet weak var locationPickerView: UIPickerView!
+    
 
     var currentLocation: CurrentLocation!
     let places: Places = Places()
@@ -237,6 +241,24 @@ class ViewController: UIViewController, UIPickerViewDelegate, MFMessageComposeVi
             break;
         }
     }
+    
+    @IBAction func locationSelectorChanged(sender: AnyObject) {
+        
+        switch self.locationSegmentedControl.selectedSegmentIndex {
+        case 0:
+            self.locationPickerView.hidden = false
+        case 1:
+            self.locationPickerView.hidden = true
+            let errorAlert = UIAlertView(title: "Cannot Determine Location", message: "This option is not available yet", delegate: self, cancelButtonTitle: "OK")
+            displayParkingAbility()
+            errorAlert.show()
+            self.locationSegmentedControl.selectedSegmentIndex = 0
+            locationSelectorChanged(sender)
+        default: 
+            break; 
+        }
+    }
+    
 
 }
 
