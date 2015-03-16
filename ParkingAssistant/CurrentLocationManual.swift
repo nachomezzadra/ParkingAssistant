@@ -13,15 +13,17 @@ class CurrentLocationManual: CurrentLocation {
 
     let places: Places
     var currentCityStr: String
+    var userSettings: UserSettings
 
 
     init(currentCity: String) {
         self.places = Places()
         self.currentCityStr = currentCity
+        self.userSettings = UserSettings()
     }
     
     func getCurrentCity() -> City {
-        return places.getCityFrom(self.currentCityStr)!
+        return places.getCityFrom(self.currentCityStr) ?? places.getCityFrom(userSettings.lastKnownLocation)!
     }
     
     

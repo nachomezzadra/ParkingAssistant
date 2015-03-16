@@ -12,9 +12,10 @@ class Places {
 
     var dictionary = Dictionary<String, City>()
     var keys: [String] = [String]()
-
+    let unknownCityKey = "Unknown City"
 
     init() {
+        var smsParkingSetUnknown: SmsParkingSet = getSmsParkingSetUnknown()
         var smsParkingSetTandil: SmsParkingSet = getSmsDetailsTandil()
         var smsParkingSetLaPlata: SmsParkingSet = getSmsDetailsLaPlata()
         var smsParkingSetJunin: SmsParkingSet = getSmsDetailsJunin()
@@ -27,27 +28,29 @@ class Places {
         dictionary["Junin"] = City(name: "Junin", latitude: -34.585, longitude: -60.9589, smsParkingSet: smsParkingSetJunin)
         dictionary["Mar del Plata"] = City(name: "Mar del Plata", latitude: -38, longitude: -57.55, smsParkingSet: smsParkingSetMarDelPlata)
         dictionary["Moron"] = City(name: "Moron", latitude: -1, longitude: -1, smsParkingSet: smsParkingSetMoron)
-        
+
+        dictionary[unknownCityKey] = City(name: unknownCityKey, latitude: -1, longitude: -1, smsParkingSet: smsParkingSetUnknown)
         // assigning all the dictionary elements to an array of keys
         self.keys = [String] (dictionary.keys)
 
     }
     
     func getCityFrom(cityName: String) -> City? {
-        if (cityName != "") {
-            return dictionary[cityName]!
-        }
-//        hay que ver q hacer cuando no se encuentra la current city.  Retornal nil parece no estar bueno..  tal vez una city vacia o de error?
-        return getCityFrom("Tandil")
+            return dictionary[cityName] ?? dictionary[unknownCityKey]!
     }
     
     func getNumberOfCities() -> Int {
         return dictionary.count
     }
     
-    func getCityFromId(id: Int) -> City {
+    func getCityFromId(id: Int) -> City? {
         var cityAsStr: String = (self.keys[id])
-        return self.getCityFrom(cityAsStr)!
+        return self.getCityFrom(cityAsStr)
+    }
+    
+    private func getSmsParkingSetUnknown() -> SmsParkingSet {
+        var smsFormat: SmsFormat = SmsFormat(smsNumber: "Unknown number")
+        return SmsParkingSet(smsStart: smsFormat, smsStop: nil, smsRegister: nil, smsCard: nil, smsBalance: nil)
     }
     
     private func getSmsDetailsTandil() -> SmsParkingSet {

@@ -42,7 +42,7 @@ class ViewControllerOld: UIViewController {
     
     
     @IBAction func doPark(sender: AnyObject) {
-        let parkingManager = ParkingManager(currentLocation: self.currentLocation)
+        let parkingManager = ParkingManager()
         //var currentCity =
         self.doFillInformationLabels(parkingManager)
         

@@ -11,13 +11,17 @@ import Foundation
 
 public class ParkingManager {
     
-    private let user1 = User(licensePlate: "NFV743")
+    private let userSettings = UserSettings()
     private var currentLocation: CurrentLocation
     private var currentState = CurrentState()
     
     
-    init(currentLocation: CurrentLocation) {
-        self.currentLocation = currentLocation
+    init() {
+        if userSettings.automaticallyDetermineLocation {
+            self.currentLocation = CurrentLocationAuto()
+        } else {
+            self.currentLocation = CurrentLocationManual(currentCity: userSettings.lastKnownLocation)
+        }
     }
     
     
@@ -41,11 +45,11 @@ public class ParkingManager {
     }
 
     private func fillOutMessageDetails(cardNumber: String?) {
-        currentLocation.getCurrentCity().smsParkingSet.fillOutVariables(self.user1.licensePlate, actualBlock: self.currentLocation.getCurrentBlock(), actualStreet: self.currentLocation.getCurrentStreet(), actualHours: "1", cardNumber: cardNumber)
+        currentLocation.getCurrentCity().smsParkingSet.fillOutVariables(self.userSettings.licensePlate, actualBlock: self.currentLocation.getCurrentBlock(), actualStreet: self.currentLocation.getCurrentStreet(), actualHours: "1", cardNumber: cardNumber)
     }
     
     func getLicensePlate() -> String {
-        return self.user1.licensePlate
+        return self.userSettings.licensePlate
     }
     
     func requiresParkingCard() -> Bool {

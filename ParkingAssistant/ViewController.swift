@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 import MessageUI
 
-class ViewController: UIViewController, UIPickerViewDelegate, MFMessageComposeViewControllerDelegate {
+class ViewController: UITableViewController, UIPickerViewDelegate, MFMessageComposeViewControllerDelegate {
 
 
     @IBOutlet weak var locationTargetLabel: UILabel!
@@ -28,11 +28,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, MFMessageComposeVi
     @IBOutlet weak var startParkingButton: UIButton!
     
     @IBOutlet weak var locationSegmentedControl: UISegmentedControl!
-
-    @IBOutlet weak var locationPickerView: UIPickerView!
     
-
-    var currentLocation: CurrentLocation!
     let places: Places = Places()
     let smsSender = SmsSender()
     var parkingManager: ParkingManager!
@@ -40,21 +36,16 @@ class ViewController: UIViewController, UIPickerViewDelegate, MFMessageComposeVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        setCurrentLocationForId(0)
+//        updateUI()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        updateUI()
+    }
+    
+    func updateUI() {
         updateWithCurrentCity()
         doFillInformationLabels(self.parkingManager)
-    }
-
-    func setCurrentLocationForId(cityId: Int) {
-        var cityName = self.places.getCityFromId(cityId).name
-        locationTargetLabel.text = cityName
-        self.currentLocation = CurrentLocationManual(currentCity: cityName)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
 
@@ -90,14 +81,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, MFMessageComposeVi
         doSendSms(smsFormat)
         doStartTimer()
     }
-
-    @IBAction func findCurrentLocation(sender: AnyObject) {
-        let myAlert = UIAlertView(title: "Current Location",
-                message: "You are in " + currentLocation.getCurrentCity().name,
-                delegate: nil, cancelButtonTitle: "Ok")
-        myAlert.show()
-    }
-
 
 
     ///////////// timer //////////////////
@@ -147,7 +130,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, MFMessageComposeVi
     /////////////////////////////
 
     func updateWithCurrentCity() {
-        self.parkingManager = ParkingManager(currentLocation: self.currentLocation)
+        self.parkingManager = ParkingManager()
 
         cardNumberLabel.hidden = !parkingManager.requiresParkingCard()
         cardTextField.hidden = !parkingManager.requiresParkingCard()
@@ -178,28 +161,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, MFMessageComposeVi
             stopParkingButton.hidden = true
             timeCounterLabel.hidden = true
         }
-    }
-
-
-    ///////////// picker view ////////////////
-
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 1
-    }
-
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return self.places.getNumberOfCities()
-    }
-
-
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
-        return self.places.getCityFromId(row).name
-    }
-
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        setCurrentLocationForId(row)
-        updateWithCurrentCity()
-        doFillInformationLabels(self.parkingManager)
     }
 
     //////////// sms sender ////////////
@@ -241,24 +202,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, MFMessageComposeVi
             break;
         }
     }
-    
-    @IBAction func locationSelectorChanged(sender: AnyObject) {
-        
-        switch self.locationSegmentedControl.selectedSegmentIndex {
-        case 0:
-            self.locationPickerView.hidden = false
-        case 1:
-            self.locationPickerView.hidden = true
-            let errorAlert = UIAlertView(title: "Cannot Determine Location", message: "This option is not available yet", delegate: self, cancelButtonTitle: "OK")
-            displayParkingAbility()
-            errorAlert.show()
-            self.locationSegmentedControl.selectedSegmentIndex = 0
-            locationSelectorChanged(sender)
-        default: 
-            break; 
-        }
-    }
-    
 
 }
 

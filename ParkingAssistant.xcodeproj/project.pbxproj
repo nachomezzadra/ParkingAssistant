@@ -13,7 +13,7 @@
 		665E75591A65D98800AD3AE3 /* ViewControllerOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665E75581A65D98800AD3AE3 /* ViewControllerOld.swift */; };
 		665E755B1A68859100AD3AE3 /* CurrentLocationAuto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665E755A1A68859100AD3AE3 /* CurrentLocationAuto.swift */; };
 		665E755D1A68864E00AD3AE3 /* CurrentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665E755C1A68864E00AD3AE3 /* CurrentLocation.swift */; };
-		6668403C1A40EE1500A0EB15 /* SmsFormatTandil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6668403B1A40EE1500A0EB15 /* SmsFormatTandil.swift */; };
+		6664CB481A95889400DE10F2 /* UserSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6664CB471A95889400DE10F2 /* UserSettingsController.swift */; };
 		6668403E1A40F22A00A0EB15 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6668403D1A40F22A00A0EB15 /* CoreLocation.framework */; };
 		666840421A44E6E700A0EB15 /* Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666840411A44E6E700A0EB15 /* Places.swift */; };
 		666840461A45182F00A0EB15 /* OneShotLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666840451A45182F00A0EB15 /* OneShotLocationManager.swift */; };
@@ -28,7 +28,8 @@
 		666AA8851A3A6E6000B9E548 /* ParkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666AA87C1A3A6E6000B9E548 /* ParkingManager.swift */; };
 		666AA8861A3A6E6000B9E548 /* SmsFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666AA87D1A3A6E6000B9E548 /* SmsFormat.swift */; };
 		666AA8871A3A6E6000B9E548 /* SmsSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666AA87E1A3A6E6000B9E548 /* SmsSender.swift */; };
-		666AA8881A3A6E6000B9E548 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666AA87F1A3A6E6000B9E548 /* User.swift */; };
+		666AA8881A3A6E6000B9E548 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666AA87F1A3A6E6000B9E548 /* UserSettings.swift */; };
+		667F0D461AAE7F9A0063F5D1 /* PlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667F0D451AAE7F9A0063F5D1 /* PlacesViewController.swift */; };
 		6689BFAF1A48C3CF00A0F688 /* SmsBodyOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6689BFAE1A48C3CF00A0F688 /* SmsBodyOption.swift */; };
 		6689D4D01A6F26410002663D /* SmsParkingSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6689D4CF1A6F26410002663D /* SmsParkingSet.swift */; };
 /* End PBXBuildFile section */
@@ -50,7 +51,7 @@
 		665E75581A65D98800AD3AE3 /* ViewControllerOld.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerOld.swift; sourceTree = "<group>"; };
 		665E755A1A68859100AD3AE3 /* CurrentLocationAuto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLocationAuto.swift; sourceTree = "<group>"; };
 		665E755C1A68864E00AD3AE3 /* CurrentLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLocation.swift; sourceTree = "<group>"; };
-		6668403B1A40EE1500A0EB15 /* SmsFormatTandil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmsFormatTandil.swift; sourceTree = "<group>"; };
+		6664CB471A95889400DE10F2 /* UserSettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettingsController.swift; sourceTree = "<group>"; };
 		6668403D1A40F22A00A0EB15 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		666840411A44E6E700A0EB15 /* Places.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Places.swift; sourceTree = "<group>"; };
 		666840451A45182F00A0EB15 /* OneShotLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneShotLocationManager.swift; sourceTree = "<group>"; };
@@ -69,8 +70,9 @@
 		666AA87C1A3A6E6000B9E548 /* ParkingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingManager.swift; sourceTree = "<group>"; };
 		666AA87D1A3A6E6000B9E548 /* SmsFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmsFormat.swift; sourceTree = "<group>"; };
 		666AA87E1A3A6E6000B9E548 /* SmsSender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmsSender.swift; sourceTree = "<group>"; };
-		666AA87F1A3A6E6000B9E548 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		666AA87F1A3A6E6000B9E548 /* UserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		666AA88B1A3A7CFA00B9E548 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		667F0D451AAE7F9A0063F5D1 /* PlacesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesViewController.swift; sourceTree = "<group>"; };
 		6689BFAE1A48C3CF00A0F688 /* SmsBodyOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmsBodyOption.swift; sourceTree = "<group>"; };
 		6689D4CF1A6F26410002663D /* SmsParkingSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmsParkingSet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -148,12 +150,11 @@
 			isa = PBXGroup;
 			children = (
 				666AA8761A3A6E1900B9E548 /* domain */,
-				666AA8561A3A6E0200B9E548 /* AppDelegate.swift */,
 				666AA8581A3A6E0200B9E548 /* ViewController.swift */,
+				6664CB471A95889400DE10F2 /* UserSettingsController.swift */,
+				667F0D451AAE7F9A0063F5D1 /* PlacesViewController.swift */,
 				665E75581A65D98800AD3AE3 /* ViewControllerOld.swift */,
 				666AA85A1A3A6E0200B9E548 /* Main.storyboard */,
-				666AA85D1A3A6E0200B9E548 /* Images.xcassets */,
-				666AA85F1A3A6E0200B9E548 /* LaunchScreen.xib */,
 				666AA8541A3A6E0200B9E548 /* Supporting Files */,
 			);
 			path = ParkingAssistant;
@@ -162,6 +163,9 @@
 		666AA8541A3A6E0200B9E548 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				666AA85D1A3A6E0200B9E548 /* Images.xcassets */,
+				666AA85F1A3A6E0200B9E548 /* LaunchScreen.xib */,
+				666AA8561A3A6E0200B9E548 /* AppDelegate.swift */,
 				666AA8551A3A6E0200B9E548 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -191,7 +195,7 @@
 				662C42BD1A79A8B20024741E /* parking */,
 				666840471A45187800A0EB15 /* location */,
 				666AA8891A3A6E7800B9E548 /* sms */,
-				666AA87F1A3A6E6000B9E548 /* User.swift */,
+				666AA87F1A3A6E6000B9E548 /* UserSettings.swift */,
 			);
 			name = domain;
 			sourceTree = "<group>";
@@ -202,7 +206,6 @@
 				666AA87D1A3A6E6000B9E548 /* SmsFormat.swift */,
 				6689D4CF1A6F26410002663D /* SmsParkingSet.swift */,
 				666AA87E1A3A6E6000B9E548 /* SmsSender.swift */,
-				6668403B1A40EE1500A0EB15 /* SmsFormatTandil.swift */,
 				6689BFAE1A48C3CF00A0F688 /* SmsBodyOption.swift */,
 			);
 			name = sms;
@@ -314,7 +317,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				666840461A45182F00A0EB15 /* OneShotLocationManager.swift in Sources */,
-				6668403C1A40EE1500A0EB15 /* SmsFormatTandil.swift in Sources */,
 				666AA8871A3A6E6000B9E548 /* SmsSender.swift in Sources */,
 				662C42C11A79A9840024741E /* CurrentState.swift in Sources */,
 				666AA8591A3A6E0200B9E548 /* ViewController.swift in Sources */,
@@ -324,14 +326,16 @@
 				661D95A51A84292E0033F7EA /* Timer.swift in Sources */,
 				666AA8571A3A6E0200B9E548 /* AppDelegate.swift in Sources */,
 				6689D4D01A6F26410002663D /* SmsParkingSet.swift in Sources */,
+				6664CB481A95889400DE10F2 /* UserSettingsController.swift in Sources */,
 				665E75591A65D98800AD3AE3 /* ViewControllerOld.swift in Sources */,
 				666AA8801A3A6E6000B9E548 /* City.swift in Sources */,
 				665E755B1A68859100AD3AE3 /* CurrentLocationAuto.swift in Sources */,
+				667F0D461AAE7F9A0063F5D1 /* PlacesViewController.swift in Sources */,
 				662C42BF1A79A8C50024741E /* ParkingState.swift in Sources */,
 				665E755D1A68864E00AD3AE3 /* CurrentLocation.swift in Sources */,
 				666AA8821A3A6E6000B9E548 /* CurrentLocationManual.swift in Sources */,
 				666AA8851A3A6E6000B9E548 /* ParkingManager.swift in Sources */,
-				666AA8881A3A6E6000B9E548 /* User.swift in Sources */,
+				666AA8881A3A6E6000B9E548 /* UserSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
