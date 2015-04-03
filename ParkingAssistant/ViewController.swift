@@ -10,24 +10,23 @@ import UIKit
 import CoreLocation
 import MessageUI
 
-class ViewController: UITableViewController, UIPickerViewDelegate, MFMessageComposeViewControllerDelegate {
+class ViewController: UITableViewController, UITableViewDelegate, MFMessageComposeViewControllerDelegate {
 
 
     @IBOutlet weak var locationTargetLabel: UILabel!
     @IBOutlet weak var smsDetails: UILabel!
     @IBOutlet weak var licensePlateLabel: UILabel!
-    @IBOutlet weak var errorLabel: UILabel!
-    @IBOutlet weak var successLabel: UILabel!
     @IBOutlet weak var smsNumber: UILabel!
 
-    @IBOutlet weak var cardNumberLabel: UILabel!
-    @IBOutlet weak var cardTextField: UITextField!
-    @IBOutlet weak var cardRegistrationButton: UIButton!
+
     @IBOutlet weak var timeCounterLabel: UILabel!
     @IBOutlet weak var stopParkingButton: UIButton!
     @IBOutlet weak var startParkingButton: UIButton!
+
+    @IBOutlet weak var cardRegistrationTableViewCell: UITableViewCell!
     
-    @IBOutlet weak var locationSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var cardNumberLabel: UILabel!
+
     
     let places: Places = Places()
     let smsSender = SmsSender()
@@ -36,7 +35,6 @@ class ViewController: UITableViewController, UIPickerViewDelegate, MFMessageComp
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        updateUI()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -57,11 +55,6 @@ class ViewController: UITableViewController, UIPickerViewDelegate, MFMessageComp
     }
 
 
-    @IBAction func sendRegistrationSms(sender: AnyObject) {
-        let text: String = self.cardTextField!.text
-        var smsFormat: SmsFormat? = parkingManager.getCardSmsFormat(text)
-        doSendSms(smsFormat!)
-    }
 
     @IBAction func stopParking(sender: AnyObject) {
         self.parkingManager.stopParking()
@@ -131,35 +124,20 @@ class ViewController: UITableViewController, UIPickerViewDelegate, MFMessageComp
 
     func updateWithCurrentCity() {
         self.parkingManager = ParkingManager()
-
-        cardNumberLabel.hidden = !parkingManager.requiresParkingCard()
-        cardTextField.hidden = !parkingManager.requiresParkingCard()
-        cardRegistrationButton.hidden = !parkingManager.requiresParkingCard()
+        cardNumberLabel.text = parkingManager.getCardNumber()
+        cardRegistrationTableViewCell.hidden = !parkingManager.requiresParkingCard()
     }
-
-    func displaySuccess() {
-        println("Message was sent")
-        successLabel.hidden = false
-        errorLabel.hidden = true
-    }
-
-    func displayError() {
-        println("Message failed")
-        successLabel.hidden = true
-        errorLabel.hidden = false
-    }
-
 
     func displayParkingAbility() {
         println("Displaying Parking Ability. \(self.parkingManager.getCurrentState())")
         if self.parkingManager.isParked() {
             startParkingButton.hidden = true
             stopParkingButton.hidden = false
-            timeCounterLabel.hidden = false
+//            timeCounterLabel.hidden = false
         } else {
             startParkingButton.hidden = false
             stopParkingButton.hidden = true
-            timeCounterLabel.hidden = true
+//            timeCounterLabel.hidden = true
         }
     }
 
@@ -185,16 +163,16 @@ class ViewController: UITableViewController, UIPickerViewDelegate, MFMessageComp
         case MessageComposeResultCancelled.value:
             println("Message was cancelled")
             self.parkingManager.stopParking()
-            displayError()
+//            displayError()
             displayParkingAbility()
             self.dismissViewControllerAnimated(true, completion: nil)
         case MessageComposeResultFailed.value:
-            displayError()
+//            displayError()
             self.parkingManager.stopParking()
             displayParkingAbility()
             self.dismissViewControllerAnimated(true, completion: nil)
         case MessageComposeResultSent.value:
-            displaySuccess()
+//            displaySuccess()
             doStartTimer()
             displayParkingAbility()
             self.dismissViewControllerAnimated(true, completion: nil)

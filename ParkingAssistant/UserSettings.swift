@@ -15,14 +15,17 @@ class UserSettings {
     private let licensePlateKey = "licensePlateKey"
     private let automaticallyDetermineLocationKey = "automaticallyDetermineLocationKey"
     private let lastKnownLocationKey = "lastKnownLocationKey"
+    private let cardNumberKey = "cardNumberKey"
 
     private let defaults = NSUserDefaults.standardUserDefaults()
 
     private let unknownLocation = "Unknown Location"
+    private let defaultCardNumber = ""
 
     var licensePlate = ""
     var automaticallyDetermineLocation = false
     var lastKnownLocation: String = ""
+    var cardNumber = ""
     
     init() {
         self.load()
@@ -32,6 +35,7 @@ class UserSettings {
         defaults.setObject(licensePlate, forKey: licensePlateKey)
         defaults.setObject(automaticallyDetermineLocation, forKey: automaticallyDetermineLocationKey)
         defaults.setObject(lastKnownLocation, forKey: lastKnownLocationKey)
+        defaults.setObject(cardNumber, forKey: cardNumberKey)
     }
     
     func load() {
@@ -41,7 +45,8 @@ class UserSettings {
         self.automaticallyDetermineLocation = defaults.boolForKey(automaticallyDetermineLocationKey)
         
         self.lastKnownLocation = defaults.stringForKey(lastKnownLocationKey) ?? unknownLocation
-
+        
+        self.cardNumber = defaults.stringForKey(cardNumberKey) ?? defaultCardNumber
     }
 
     func lastLocationIsUnknown() -> Bool {

@@ -87,5 +87,13 @@ public class ParkingManager {
         return startedParking
     }
     
+    func setCardNumber(cardNumber: String) {
+        self.userSettings.cardNumber = cardNumber
+        self.userSettings.save()
+    }
+    
+    func getCardNumber() -> String {
+        return self.userSettings.cardNumber
+    }
     
 }

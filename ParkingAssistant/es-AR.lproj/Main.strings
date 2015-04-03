@@ -1,0 +1,102 @@
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "277-oT-9CW"; */
+"277-oT-9CW.title" = "Title";
+
+/* Class = "UIButton"; normalTitle = "Do Park!"; ObjectID = "3cU-pA-CP6"; */
+"3cU-pA-CP6.normalTitle" = "Do Park!";
+
+/* Class = "UITableViewSection"; headerTitle = "Card Details"; ObjectID = "41h-Ik-k2s"; */
+"41h-Ik-k2s.headerTitle" = "Card Details";
+
+/* Class = "UILabel"; text = "Fixed Location"; ObjectID = "5nI-iP-xc2"; */
+"5nI-iP-xc2.text" = "Fixed Location";
+
+/* Class = "UILabel"; text = "Where Am I?"; ObjectID = "6tP-gS-vIY"; */
+"6tP-gS-vIY.text" = "Where Am I?";
+
+/* Class = "UIButton"; normalTitle = "⚙"; ObjectID = "8yb-n0-rfv"; */
+"8yb-n0-rfv.normalTitle" = "⚙";
+
+/* Class = "UILabel"; text = "@nachomezzadra"; ObjectID = "ALA-U8-Bka"; */
+"ALA-U8-Bka.text" = "@nachomezzadra";
+
+/* Class = "UITableViewSection"; headerTitle = "About"; ObjectID = "AO0-lS-WDG"; */
+"AO0-lS-WDG.headerTitle" = "About";
+
+/* Class = "UILabel"; text = "Card Number"; ObjectID = "FRp-Qy-qVe"; */
+"FRp-Qy-qVe.text" = "Card Number";
+
+/* Class = "UITableViewSection"; headerTitle = "Details"; ObjectID = "HWb-1l-kwq"; */
+"HWb-1l-kwq.headerTitle" = "Details";
+
+/* Class = "UILabel"; text = "License Plate:"; ObjectID = "IHL-sb-qHq"; */
+"IHL-sb-qHq.text" = "License Plate:";
+
+/* Class = "UIButton"; normalTitle = "Register Card"; ObjectID = "L9k-R5-yca"; */
+"L9k-R5-yca.normalTitle" = "Register Card";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "PL9-p6-hGB"; */
+"PL9-p6-hGB.text" = "Detail";
+
+/* Class = "UILabel"; text = "Card Number"; ObjectID = "PLO-Y3-Nlu"; */
+"PLO-Y3-Nlu.text" = "Card Number";
+
+/* Class = "UILabel"; text = "Timer"; ObjectID = "ToQ-SG-T8m"; */
+"ToQ-SG-T8m.text" = "Timer";
+
+/* Class = "UILabel"; text = "SMS Number: "; ObjectID = "VBo-Hd-KpW"; */
+"VBo-Hd-KpW.text" = "SMS Number: ";
+
+/* Class = "UILabel"; text = "Parking Assistant in GitHub"; ObjectID = "VmZ-sW-Ghp"; */
+"VmZ-sW-Ghp.text" = "Parking Assistant in GitHub";
+
+/* Class = "UILabel"; text = "SMS to Send Details"; ObjectID = "Wv5-U9-e7Z"; */
+"Wv5-U9-e7Z.text" = "SMS to Send Details";
+
+/* Class = "UILabel"; text = "Location Details"; ObjectID = "aw0-kL-DuA"; */
+"aw0-kL-DuA.text" = "Location Details";
+
+/* Class = "UIButton"; normalTitle = "Stop Parking"; ObjectID = "cqV-lf-WRb"; */
+"cqV-lf-WRb.normalTitle" = "Stop Parking";
+
+/* Class = "UITableViewSection"; headerTitle = "License Plate"; ObjectID = "d8V-2a-mml"; */
+"d8V-2a-mml.headerTitle" = "License Plate";
+
+/* Class = "UITextField"; placeholder = "Enter Card Number"; ObjectID = "hf8-PL-SnE"; */
+"hf8-PL-SnE.placeholder" = "Enter Card Number";
+
+/* Class = "UITextField"; placeholder = "Enter License Plate"; ObjectID = "iI9-Vk-lxH"; */
+"iI9-Vk-lxH.placeholder" = "Enter License Plate";
+
+/* Class = "UITableViewSection"; footerTitle = "This feature requires GPS to be enabled"; ObjectID = "iRY-K8-piK"; */
+"iRY-K8-piK.footerTitle" = "This feature requires GPS to be enabled";
+
+/* Class = "UITableViewSection"; headerTitle = "Location"; ObjectID = "iRY-K8-piK"; */
+"iRY-K8-piK.headerTitle" = "Location";
+
+/* Class = "UITableViewSection"; headerTitle = "Elapsed Time"; ObjectID = "jpc-Se-BVL"; */
+"jpc-Se-BVL.headerTitle" = "Elapsed Time";
+
+/* Class = "UILabel"; text = "Automatically determine my location"; ObjectID = "kxk-In-gmW"; */
+"kxk-In-gmW.text" = "Automatically determine my location";
+
+/* Class = "UILabel"; text = "License Plate Details"; ObjectID = "lBt-lW-2iV"; */
+"lBt-lW-2iV.text" = "License Plate Details";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "o79-ye-IAH"; */
+"o79-ye-IAH.text" = "Title";
+
+/* Class = "UITableViewSection"; headerTitle = "Card Details"; ObjectID = "qR6-fl-dnk"; */
+"qR6-fl-dnk.headerTitle" = "Card Details";
+
+/* Class = "UILabel"; text = "SMS to Send:"; ObjectID = "rk2-gR-x8n"; */
+"rk2-gR-x8n.text" = "SMS to Send:";
+
+/* Class = "UILabel"; text = "SMS Number Details"; ObjectID = "srV-ay-Jeg"; */
+"srV-ay-Jeg.text" = "SMS Number Details";
+
+/* Class = "UITableViewController"; title = "Settings"; ObjectID = "tGo-pK-Ggg"; */
+"tGo-pK-Ggg.title" = "Settings";
+
+/* Class = "UILabel"; text = "My License Plate"; ObjectID = "wpU-oX-wtp"; */
+"wpU-oX-wtp.text" = "My License Plate";

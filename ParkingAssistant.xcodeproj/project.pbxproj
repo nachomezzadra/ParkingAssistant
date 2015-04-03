@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		661083EF1AC38ED8003827E2 /* CardRegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661083EE1AC38ED8003827E2 /* CardRegistrationController.swift */; };
 		661D95A51A84292E0033F7EA /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661D95A41A84292E0033F7EA /* Timer.swift */; };
 		662C42BF1A79A8C50024741E /* ParkingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662C42BE1A79A8C50024741E /* ParkingState.swift */; };
 		662C42C11A79A9840024741E /* CurrentState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662C42C01A79A9840024741E /* CurrentState.swift */; };
@@ -32,6 +33,9 @@
 		667F0D461AAE7F9A0063F5D1 /* PlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667F0D451AAE7F9A0063F5D1 /* PlacesViewController.swift */; };
 		6689BFAF1A48C3CF00A0F688 /* SmsBodyOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6689BFAE1A48C3CF00A0F688 /* SmsBodyOption.swift */; };
 		6689D4D01A6F26410002663D /* SmsParkingSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6689D4CF1A6F26410002663D /* SmsParkingSet.swift */; };
+		66D8694C1AB7A4CA001B85E7 /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 66D8694B1AB7A4CA001B85E7 /* twitter.png */; };
+		66D8694F1AB7A6D6001B85E7 /* GitHub-Mark-32px.png in Resources */ = {isa = PBXBuildFile; fileRef = 66D8694D1AB7A6D6001B85E7 /* GitHub-Mark-32px.png */; };
+		66D869501AB7A6D6001B85E7 /* GitHub-Mark-64px.png in Resources */ = {isa = PBXBuildFile; fileRef = 66D8694E1AB7A6D6001B85E7 /* GitHub-Mark-64px.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		661083EE1AC38ED8003827E2 /* CardRegistrationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardRegistrationController.swift; sourceTree = "<group>"; };
 		661D95A41A84292E0033F7EA /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		662C42BE1A79A8C50024741E /* ParkingState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingState.swift; sourceTree = "<group>"; };
 		662C42C01A79A9840024741E /* CurrentState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentState.swift; sourceTree = "<group>"; };
@@ -75,6 +80,11 @@
 		667F0D451AAE7F9A0063F5D1 /* PlacesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesViewController.swift; sourceTree = "<group>"; };
 		6689BFAE1A48C3CF00A0F688 /* SmsBodyOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmsBodyOption.swift; sourceTree = "<group>"; };
 		6689D4CF1A6F26410002663D /* SmsParkingSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmsParkingSet.swift; sourceTree = "<group>"; };
+		66913CFF1ACF34E900ECD82D /* es-AR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-AR"; path = "es-AR.lproj/Main.strings"; sourceTree = "<group>"; };
+		66913D001ACF34E900ECD82D /* es-AR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-AR"; path = "es-AR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		66D8694B1AB7A4CA001B85E7 /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
+		66D8694D1AB7A6D6001B85E7 /* GitHub-Mark-32px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GitHub-Mark-32px.png"; sourceTree = "<group>"; };
+		66D8694E1AB7A6D6001B85E7 /* GitHub-Mark-64px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GitHub-Mark-64px.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +162,7 @@
 				666AA8761A3A6E1900B9E548 /* domain */,
 				666AA8581A3A6E0200B9E548 /* ViewController.swift */,
 				6664CB471A95889400DE10F2 /* UserSettingsController.swift */,
+				661083EE1AC38ED8003827E2 /* CardRegistrationController.swift */,
 				667F0D451AAE7F9A0063F5D1 /* PlacesViewController.swift */,
 				665E75581A65D98800AD3AE3 /* ViewControllerOld.swift */,
 				666AA85A1A3A6E0200B9E548 /* Main.storyboard */,
@@ -163,6 +174,7 @@
 		666AA8541A3A6E0200B9E548 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				66D869511AB7A6E3001B85E7 /* images */,
 				666AA85D1A3A6E0200B9E548 /* Images.xcassets */,
 				666AA85F1A3A6E0200B9E548 /* LaunchScreen.xib */,
 				666AA8561A3A6E0200B9E548 /* AppDelegate.swift */,
@@ -209,6 +221,16 @@
 				6689BFAE1A48C3CF00A0F688 /* SmsBodyOption.swift */,
 			);
 			name = sms;
+			sourceTree = "<group>";
+		};
+		66D869511AB7A6E3001B85E7 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				66D8694B1AB7A4CA001B85E7 /* twitter.png */,
+				66D8694E1AB7A6D6001B85E7 /* GitHub-Mark-64px.png */,
+				66D8694D1AB7A6D6001B85E7 /* GitHub-Mark-32px.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,6 +319,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				666AA85C1A3A6E0200B9E548 /* Main.storyboard in Resources */,
+				66D8694F1AB7A6D6001B85E7 /* GitHub-Mark-32px.png in Resources */,
+				66D8694C1AB7A4CA001B85E7 /* twitter.png in Resources */,
+				66D869501AB7A6D6001B85E7 /* GitHub-Mark-64px.png in Resources */,
 				666AA8611A3A6E0200B9E548 /* LaunchScreen.xib in Resources */,
 				666AA85E1A3A6E0200B9E548 /* Images.xcassets in Resources */,
 			);
@@ -324,6 +349,7 @@
 				6689BFAF1A48C3CF00A0F688 /* SmsBodyOption.swift in Sources */,
 				666840421A44E6E700A0EB15 /* Places.swift in Sources */,
 				661D95A51A84292E0033F7EA /* Timer.swift in Sources */,
+				661083EF1AC38ED8003827E2 /* CardRegistrationController.swift in Sources */,
 				666AA8571A3A6E0200B9E548 /* AppDelegate.swift in Sources */,
 				6689D4D01A6F26410002663D /* SmsParkingSet.swift in Sources */,
 				6664CB481A95889400DE10F2 /* UserSettingsController.swift in Sources */,
@@ -363,6 +389,7 @@
 			children = (
 				666AA85B1A3A6E0200B9E548 /* Base */,
 				666AA88B1A3A7CFA00B9E548 /* en */,
+				66913CFF1ACF34E900ECD82D /* es-AR */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -371,6 +398,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				666AA8601A3A6E0200B9E548 /* Base */,
+				66913D001ACF34E900ECD82D /* es-AR */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
