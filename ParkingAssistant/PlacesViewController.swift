@@ -38,7 +38,7 @@ class PlacesViewController: UITableViewController, UITableViewDelegate, UITableV
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell: UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell
+        var cell: UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell") as! UITableViewCell
 
         var currentCity = self.placesArray.objectAtIndex(indexPath.row) as? String
 

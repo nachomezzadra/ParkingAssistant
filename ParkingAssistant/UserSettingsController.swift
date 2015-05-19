@@ -44,8 +44,9 @@ class UserSettingsController: UITableViewController, UITextFieldDelegate {
         return true
     }
     
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-//        licensePlateTextField.resignFirstResponder()
+
+    
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         self.view.endEditing(true)
     }
 
@@ -62,11 +63,4 @@ class UserSettingsController: UITableViewController, UITextFieldDelegate {
         println(userSettings.licensePlate)
     }
     
-
-    
-    // called when 'return' key pressed. return NO to ignore.
-    func textFieldShouldReturn(textField: UITextField!) -> Bool {
-        textField.resignFirstResponder()
-        return true;
-    }
 }
